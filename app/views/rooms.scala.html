@@ -2,6 +2,6 @@
 
 <ul>
     @for(room <- rooms) {
-        <li>@room</li>
+        <li><a href="@routes.Application.logs(room)">@room</a></li>
     }
 </ul>

@@ -1,0 +1,9 @@
+@(records: Seq[LogRecord])
+
+@for(record <- records) {
+    <p>
+        <span class="time">@record.time</span>
+        <span class="sender">@record.sender</span>
+        <span class="text">@record.text</span>
+    </p>
+}

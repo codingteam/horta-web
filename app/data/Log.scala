@@ -1,4 +1,4 @@
-package models
+package data
 
 import scala.slick.driver.H2Driver.simple._
 import java.sql.Timestamp

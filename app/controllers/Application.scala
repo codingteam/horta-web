@@ -1,23 +1,22 @@
 package controllers
 
-import play.api._
-import play.api.Play.current
+import data.Data
 import play.api.db._
 import play.api.mvc._
-import models.Data
+import play.api.Play.current
 
 object Application extends Controller {
 
-  def dataSource = DB.getDataSource()
+  implicit def dataSource = DB.getDataSource()
 
   def rooms = Action {
-    val rooms = Data.rooms(dataSource)
+    val rooms = Data.rooms
     Ok(views.html.rooms(rooms))
   }
 
   def logs(room: String) = Action {
-    //val logs = Data.logs(room)
-    Ok(""/*views.html.logs(logs)*/)
+    val logs = Data.logs(room)
+    Ok(views.html.logs(logs))
   }
 
 }
