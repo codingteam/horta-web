@@ -1,7 +1,7 @@
 package data
 
 import javax.sql.DataSource
-import models.LogRecord
+import models.{RoomModel, LogRecord}
 import org.joda.time.{DateTime, LocalDate, LocalTime}
 import scala.slick.driver.H2Driver.simple._
 import java.sql.Timestamp
@@ -10,10 +10,10 @@ object Data {
 
   val log = TableQuery[Log]
 
-  def rooms(implicit dataSource: DataSource): Seq[String] = {
+  def rooms(implicit dataSource: DataSource): Seq[RoomModel] = {
     Database.forDataSource(dataSource) withSession { implicit session =>
       val roomNames = for (l <- log) yield l.room
-      roomNames.groupBy(identity).map(_._1).list
+      roomNames.groupBy(identity).map(_._1).list map (roomName => RoomModel(roomName, roomName))
     }
   }
 

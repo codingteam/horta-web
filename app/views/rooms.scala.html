@@ -1,7 +1,0 @@
-@(rooms: Seq[String])
-
-<ul>
-    @for(room <- rooms) {
-        <li><a href="@routes.Application.logs(room)">@room</a></li>
-    }
-</ul>
