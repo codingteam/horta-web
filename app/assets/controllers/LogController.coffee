@@ -11,7 +11,7 @@ window.hortaWeb.controller 'LogController', ['$scope', '$stateParams', '$log', '
           for log in data.logs
             $scope.logs.push log
 
-          window.setTimeout callback, CALLBACK_INTERVAL, [timestamp]
+          window.setTimeout callback, CALLBACK_INTERVAL, [data.timestamp]
         .error (data, status, headers, config) ->
           $log.error('LogService', 'error', data, status, headers, config)
 
