@@ -1,0 +1,9 @@
+<div ng-controller="LogController">
+    <a href="javascript:undefined" ui-sref="rooms">Back to rooms</a>
+
+    <p ng-repeat="record in logs">
+        <span class="time">{{record.time}}</span>
+        <span class="sender">{{record.sender}}</span>
+        <span class="text">{{record.text}}</span>
+    </p>
+</div>
